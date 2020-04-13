@@ -1,0 +1,42 @@
+# Ansible playbook AWS - install docker
+---
+- name: "VM - Config"
+  hosts: 127.0.0.1
+  become: yes
+  tasks:
+    - name: 1 - Linux - Atualizando todos os pacotes
+      package:
+        name: '*'
+        state: latest
+        update_only: yes
+
+    - name: 2 - Verifique se uma lista de pacotes está instalada
+      package:
+        name: "{{ packages }}"
+        state: latest
+        update_cache: yes
+      vars:
+        packages:
+        - python3
+        - python-pip
+        - device-mapper-persistent-data
+        - lvm2
+        - yum-utils
+        - docker 
+        - docker-engine
+        - docker-ce
+
+    - name: 3 - Habilitando Docker CE service no start da máquina
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: 4 - Verifica pacotes essenciais do python
+      pip:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - boto
+        - boto3
+        - docker-compose

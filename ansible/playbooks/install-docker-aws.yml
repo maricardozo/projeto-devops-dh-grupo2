@@ -1,0 +1,43 @@
+# Ansible playbook AWS - install docker
+---
+- name: "AWS - Install docker"
+  hosts: docker-vms
+  become: yes
+  tasks:
+    - name: Linux - Atualizando todos os pacotes
+      yum:
+        name: '*'
+        state: latest
+        update_only: yes
+
+    - name: Verifique se uma lista de pacotes yum está instalada
+      yum:
+        name: "{{ packages }}"
+        state: latest
+        update_cache: yes
+      vars:
+        packages:
+        - python-pip
+        - yum-utils
+        - device-mapper-persistent-data
+        - lvm2
+        - amazon-linux-extras
+
+    - name: Add repositorios extras 
+      shell: yum-config-manager --enable extras
+
+    - name: Install docker-ce (centos) via amazon-linux-extras packages
+      shell: "amazon-linux-extras install docker=18.06.1 -y"
+
+    - name: Habilitando Docker CE service no start da máquina
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Verifica pacotes essenciais do python
+      pip:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - docker-compose

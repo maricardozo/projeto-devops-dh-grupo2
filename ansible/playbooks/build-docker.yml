@@ -1,0 +1,29 @@
+---
+- name: Build Docker
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  vars:
+    docker_file_path: templates/docker
+    docker_label_app: digitalhouse/app-flask
+  tasks:
+    - name: Install pip
+      package: name=python-pip state=present
+      
+    - name: install docker-py
+      pip: name=docker-py
+
+    - name: Remove image
+      docker_image:
+        state: absent
+        name: "{{docker_label_app}}"
+        tag: latest
+
+    - name: Build an image
+      docker_image:
+        build:
+          path: "{{docker_file_path}}"
+          pull: yes
+        name: "{{docker_label_app}}"
+        tag: latest
+        source: build

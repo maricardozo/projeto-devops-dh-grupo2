@@ -1,0 +1,29 @@
+---
+- name: Upload Simple File
+  hosts: all
+  become: yes
+  gather_facts: yes
+  vars:
+    file_src: teste.txt
+    file_dest: /usr/src
+    owner: root
+    group: root
+    mode: 0777
+  tasks:
+    - name: Upload file
+      template:
+        src:  "{{file_src}}"
+        dest: "{{file_dest}}"
+        owner: "{{owner}}"
+        group: "{{group}}"
+        mode: "{{mode}}"
+      register: upload_file
+
+    - name: alterando conteudo arquivo
+      blockinfile:
+        path: '{{file_dest}}/{{file_src}}'
+        insertafter: ''
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+        content: |
+          conteudo edidato pelo ansible
+      when: upload_file is success

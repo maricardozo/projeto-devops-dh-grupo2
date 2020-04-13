@@ -1,0 +1,34 @@
+
+version: "3"
+
+services:
+  teste_app1:
+    image: rastasheep/ubuntu-sshd:18.04
+    ports:
+     - 22:22
+    networks:
+      rede_app_teste:
+        ipv4_address: 10.7.0.2
+
+  teste_app2:
+    image: rastasheep/ubuntu-sshd:18.04
+    ports:
+     - 22:22
+    networks:
+      rede_app_teste:
+        ipv4_address: 10.7.0.3
+
+  teste_app3:
+    image: rastasheep/ubuntu-sshd:18.04
+    ports:
+     - 22:22
+    networks:
+      rede_app_teste:
+        ipv4_address: 10.7.0.4
+
+networks:
+  rede_app_teste:    
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.7.0.0/16

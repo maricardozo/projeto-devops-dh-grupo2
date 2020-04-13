@@ -1,0 +1,11 @@
+---
+- name: "Install nodejs"
+  hosts: aula
+  become: yes
+  tasks:
+    - name: Linux - Instalando NodeJS e NPM
+      package:
+        name:
+          - nodejs
+          - npm
+        state: present

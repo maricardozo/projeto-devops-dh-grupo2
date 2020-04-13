@@ -1,0 +1,9 @@
+- name: "Copiando Log do servidor"
+  hosts: aula
+  become: yes
+  tasks:
+    - name: Baixando Arquivo - /var/log/apt/term.log 
+      fetch:
+        src: /var/log/apt/term.log 
+        dest: download/prefix-{{ inventory_hostname }}
+        flat: yes
