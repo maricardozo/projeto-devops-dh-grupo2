@@ -1,21 +1,6 @@
 # DevOps Hands-on AWS com Ansible, Docker, Jenkins
-Estrutura dividida em Trilhas
-> Trilhas 1 e 2 correspondem ao ambiente desktop
->
-> Trilhas 3 2 4 correspondem a instação e configuração do Docker e do Jenkins
 
-# 1. Trilha local com Linux virtualizado
-* (recomendado p/ windows) É necessário instalar o [VirtualBox](http://virtualbox.org/)
-* É necessário instalar o [Vagrant](http://vagrantup.com/)
-* (Linux pré-instalado) Linux no virtualbox
-* (Usar o Vagrant para instalar o Linux no VirtualBox) vagrant up
-* Continua na Trilha AWS
-
-# 2. Trilha conectar a AWS a partir do Linux Local ou VirtualBox Local
-* Pré requisito seguir a da Trilhas Local
-* Preparar o Linux para DevOps
-* Instalar o ansible no Linux com Bash
-`$ bash ./install_ansible.sh`
+# Conectar a AWS a partir do Linux Local ou VirtualBox Local
 * Criar um arquivo para as senhas
 > `$ vi ~/.ansible/.vault_pass`
 * Conteúdo o arquivo .vault_pass
@@ -38,13 +23,13 @@ Estrutura dividida em Trilhas
 > @aws_ec2:
 >   |--ec2-3-84-36-30.compute-1.amazonaws.com
 
-# 3. Trilha para provisionar uma VM EC2 Linux na AWS
+# Provisionar uma VM EC2 Linux na AWS
 O objetivo é criarmos um ambiente de desenvolvimento, homologação ou produção
 * Instalar uma infra completa do VPC-EC2 com ansible
 * * `$ ansible-playbook playbooks/aws_provisioning.yml`
 
 
-# 4. Trilha instalar na AWS EC2: Docker e Jenkins
+# Instalar na AWS EC2: Docker e Jenkins
 Concluído as demais Trilhas, vamos criar o Jenkins dentro da VM EC2 AWS
 * Instalar o docker daemon com ansible
 * * `$ ansible-playbook playbooks/docker.yml`
