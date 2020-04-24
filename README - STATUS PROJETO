@@ -1,6 +1,7 @@
 O que foi feito até agora: 
 1. Cópia do repositório do Kris 
 2. Exclusão dos arquivos referentes ao ambiente local (já fizemos)
+3. Três playbooks criados: provisioning máquina homolog, máquina prod, e máquina jenkins
 
 Próximos passos: 
 Adaptar arquivos para especificações do projeto
