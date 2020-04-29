@@ -1,6 +1,4 @@
 # Logs
-.vagrant/*
-tmp.vagrant
 *.pem
 logs
 *.log

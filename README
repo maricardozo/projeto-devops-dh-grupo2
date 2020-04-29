@@ -1,0 +1,11 @@
+Projeto das alunas: Mariana Cardozo, Paula, Andrezza e Cintia.
+
+Objetivo do projeto: Criar infraestrutura em VPC na AWS e construir pipeline para app NodeJS digitalhouse-devops-app.
+
+Pre-requisitos de ambiente para utilizacao do projeto: Ansible, Docker, Git.
+
+Steps do projeto: 
+1. Executar playbook "aws_provisioning_infra.yml"
+2. Executar playbook "aws_provisioning_jenkins.yml"
+3. Acessar Jenkins 
+4. ??
