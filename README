@@ -2,10 +2,18 @@ Projeto das alunas: Mariana Cardozo, Paula, Andrezza e Cintia.
 
 Objetivo do projeto: Criar infraestrutura em VPC na AWS e construir pipeline para app NodeJS digitalhouse-devops-app.
 
-Pre-requisitos de ambiente para utilizacao do projeto: Ansible, Docker, Git.
+Pre-requisitos de ambiente para execucao do projeto (desktop): Linux com Ansible, Docker, Jenkins, Git  (na versao mais recente)
 
-Steps do projeto: 
-1. Executar playbook "aws_provisioning_infra.yml"
-2. Executar playbook "aws_provisioning_jenkins.yml"
-3. Acessar Jenkins 
-4. ??
+Passo a passo do projeto: 
+1. Criar um arquivo de senha: echo "SuaSenha" > ~/.ansible/.vault_pass
+
+2. Dentro da pasta playbooks/vars/ criar arquivo de credenciais: ansible-vault create aws_credentials.yml
+(No formato AWSAccessKeyId: ***** AWSSecretKey: *****)
+
+3. Executar playbook "aws_provisioning_infra.yml"
+
+4. Executar playbook "aws_provisioning_jenkins.yml"
+
+5. Acessar Jenkins 
+
+6. ??

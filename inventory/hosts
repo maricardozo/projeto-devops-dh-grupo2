@@ -1,11 +1,10 @@
-[local:vars]
+[localhost:vars]
 ansible_user=ubuntu
 ansible_sudo_pass=ubuntu
-ansible_connection=local 
+ansible_connection=local
 ansible_python_interpreter=/usr/bin/python3
 
-
-[local]
+[localhost]
 127.0.0.1
 
 [ec2hosts]
