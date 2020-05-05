@@ -158,7 +158,6 @@
       loop:
         - dh-grupodois-devops-homolog
         - dh-grupodois-devops-prod
-        - dh-g-devops-jenkins
 
     - name: Create S3
       s3_bucket:
@@ -187,7 +186,6 @@
       loop:
         - dh-grupodois-devops-homolog
         - dh-grupodois-devops-prod
-        - dh-grupodois-devops-jenkins
 
 - name: Setup Ansible Hosts Group
   hosts: localhost
