@@ -21,7 +21,6 @@
     route_tag: "{{ projeto }}-route"
     sub_tag: "{{ projeto }}-subnet"
     name_aim_user_s3: digitals3
-    name_bucket: dh-grupo2
 
   tasks:
     - name: Amazon EC2 | Create Key Pair
@@ -33,7 +32,7 @@
 
     - name: Save private key
       copy: content="{{ ec2_key_result.key.private_key }}" dest="../{{ KeyPairDev }}.pem" mode=0600
-      when: ec2_key_result.changed
+      when: ec2_key_result.changed 
 
     - name: create VPC
       ec2_vpc_net:
@@ -153,19 +152,19 @@
 
     - name: Create buckets
       aws_s3:
-        bucket: '{{ name_bucket }}-{{ item }}'
+        bucket: '{{ item }}'
         mode: create
         region: us-east-1
       loop:
-        - homolog
-        - prod
-        - jenkins
+        - dh-grupodois-devops-homolog
+        - dh-grupodois-devops-prod
+        - dh-g-devops-jenkins
 
     - name: Create S3
       s3_bucket:
         aws_access_key: "{{ AWS_access_key }}"
         aws_secret_key: "{{ AWS_secret_key }}"          
-        name: '{{ name_bucket }}-{{ item }}'
+        name: '{{ item }}'
         region: "{{ region }}"
         state: present
         policy:
@@ -186,9 +185,9 @@
                 'arn:aws:s3:::{{item}}'
               ]
       loop:
-        - homolog
-        - prod
-        - jenkins
+        - dh-grupodois-devops-homolog
+        - dh-grupodois-devops-prod
+        - dh-grupodois-devops-jenkins
 
 - name: Setup Ansible Hosts Group
   hosts: localhost
