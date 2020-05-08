@@ -34,8 +34,12 @@ ansible-vault create aws_credentials.yml
 (No formato AWSAccessKeyId: ***** AWSSecretKey: *****)
 ```
 
-3. Executar playbook:
+3. Executar playbooks:
 
 ```
-aws_provisioning_infra.yml
+ansible-playbook playbooks/aws_provisioning_infra.yml
+ansible-playbook playbooks/config-ansible.yml
+ansible-playbook playbooks/docker.yml
+ansible-playbook  playbooks/jenkins.yml
+
 ```
