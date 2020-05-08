@@ -1,17 +1,53 @@
-Projeto das alunas: Mariana Cardozo, Paula, Andrezza e Cintia.
+# Projeto DevOps - Grupo2
 
-Objetivo do projeto: Criar infraestrutura em VPC na AWS e construir pipeline para app NodeJS digitalhouse-devops-app.
+Alunas: 
+- Mariana Cardozo
+- Paula Feijó 
+- Andrezza Almeida
+- Cintia Fumi
 
-Pre-requisitos de ambiente para execucao do projeto (desktop): Linux com Ansible, Docker, Jenkins, Git  (na versao mais recente)
+## Objetivo do projeto: 
 
-Passo a passo do projeto: 
-1. Criar um arquivo de senha: echo "SuaSenha" > ~/.ansible/.vault_pass
+Criar infraestrutura em VPC na AWS e construir pipeline para app NodeJS digitalhouse-devops-app.
 
-2. Dentro da pasta playbooks/vars/ criar arquivo de credenciais: ansible-vault create aws_credentials.yml
+## Pre-requisitos de ambiente para execucao do projeto (desktop):
+
+```
+- Linux com Ansible
+- Docker
+- Jenkins
+- Git (na versao mais recente)
+```
+
+### Passo a passo do projeto: 
+
+1. Criar um arquivo de senha:
+
+```
+echo "SuaSenha" > ~/.ansible/.vault_pass
+```
+
+2. Dentro da pasta playbooks/vars/ criar arquivo de credenciais: 
+
+```
+ansible-vault create aws_credentials.yml
 (No formato AWSAccessKeyId: ***** AWSSecretKey: *****)
+```
 
-3. Executar playbook "aws_provisioning_infra.yml"
+3. Executar playbook:
 
-4. Executar playbook "aws_provisioning_jenkins.yml"
+```
+aws_provisioning_infra.yml
+```
 
-5. Executar playbook "config-all", "docker"
+4. Executar playbook:
+
+```
+aws_provisioning_jenkins.yml
+```
+
+5. Executar playbook 
+```
+- config-all
+- docker
+```
