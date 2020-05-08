@@ -1,4 +1,4 @@
-#Projeto DevOps - Grupo2
+# Projeto DevOps - Grupo2
 
 Alunas: 
 - Mariana Cardozo
@@ -6,7 +6,7 @@ Alunas:
 - Andrezza Almeida
 - Cintia Fumi
 
-##Objetivo do projeto: 
+## Objetivo do projeto: 
 
 Criar infraestrutura em VPC na AWS e construir pipeline para app NodeJS digitalhouse-devops-app.
 
@@ -38,16 +38,4 @@ ansible-vault create aws_credentials.yml
 
 ```
 aws_provisioning_infra.yml
-```
-
-4. Executar playbook:
-
-```
-aws_provisioning_jenkins.yml
-```
-
-5. Executar playbook 
-```
-- config-all
-- docker
 ```
